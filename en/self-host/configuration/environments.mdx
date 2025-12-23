@@ -127,7 +127,8 @@ The database uses PostgreSQL. Please use the public schema.
   Available values include：
 
   - `postgresql`(default)
-  - `mysql` (MySQL-compatible databases like OceanBase and seekdb can also use this value)
+  - `mysql` (MySQL-compatible databases like OceanBase can also use this value)
+  - `seekdb` (lightweight version of OceanBase, MySQL-compatible)
 
 - DB_USERNAME: username
 - DB_PASSWORD: password
@@ -406,23 +407,23 @@ Used to store uploaded data set files, team/tenant encryption keys, and other fi
 
 - OCEANBASE_VECTOR_HOST
 
-  The hostname or IP address of OceanBase vector database.
+  The hostname or IP address of OceanBase vector database. Also used for seekdb when `VECTOR_STORE=seekdb`.
 
 - OCEANBASE_VECTOR_PORT
 
-  The port of OceanBase vector database.
+  The port of OceanBase vector database. Also used for seekdb when `VECTOR_STORE=seekdb`.
 
 - OCEANBASE_VECTOR_USER
 
-  The username of OceanBase vector database.
+  The username of OceanBase vector database. Also used for seekdb when `VECTOR_STORE=seekdb`.
 
 - OCEANBASE_VECTOR_PASSWORD
 
-  The password of OceanBase vector database user.
+  The password of OceanBase vector database user. Also used for seekdb when `VECTOR_STORE=seekdb`.
 
 - OCEANBASE_VECTOR_DATABASE
 
-  The database name of OceanBase vector database.
+  The database name of OceanBase vector database. Also used for seekdb when `VECTOR_STORE=seekdb`.
 
 - OCEANBASE_CLUSTER_NAME
 
@@ -434,7 +435,7 @@ Used to store uploaded data set files, team/tenant encryption keys, and other fi
 
 - SEEKDB_MEMORY_LIMIT
 
-  The memory limit of seekdb, only available for Docker deployment.
+  The memory limit of seekdb, only available for Docker deployment. seekdb is the lightweight version of OceanBase and uses the same connection parameters as OceanBase (OCEANBASE_VECTOR_* variables) when configured as a vector store.
 
 - TABLESTORE_ENDPOINT
 
